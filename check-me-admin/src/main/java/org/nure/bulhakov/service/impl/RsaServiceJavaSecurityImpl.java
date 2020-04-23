@@ -1,5 +1,6 @@
 package org.nure.bulhakov.service.impl;
 
+import org.nure.bulhakov.service.KeyService;
 import org.nure.bulhakov.service.RsaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -15,7 +16,7 @@ public class RsaServiceJavaSecurityImpl implements RsaService {
 
     private static final String ALGORITHM_NAME = "RSA/ECB/PKCS1Padding";
 
-    private KeyServiceJavaSecurityImpl keyService;
+    private KeyService keyService;
 
     @Override
     public String decode(String encoded) throws Exception {

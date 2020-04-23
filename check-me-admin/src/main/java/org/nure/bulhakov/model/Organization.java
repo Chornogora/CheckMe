@@ -1,8 +1,11 @@
 package org.nure.bulhakov.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.List;
 
 @Document(collection = "organizations")
 public class Organization {
@@ -15,6 +18,10 @@ public class Organization {
     private String email;
 
     private String phoneNumber;
+
+    @DBRef
+    @JsonIgnoreProperties("usedBy")
+    private List<CheckMachine> checkMachines;
 
     @DBRef
     private SystemAdministrator registeredBy;
@@ -60,5 +67,13 @@ public class Organization {
 
     public void setRegisteredBy(SystemAdministrator registeredBy) {
         this.registeredBy = registeredBy;
+    }
+
+    public List<CheckMachine> getCheckMachines() {
+        return checkMachines;
+    }
+
+    public void setCheckMachines(List<CheckMachine> checkMachines) {
+        this.checkMachines = checkMachines;
     }
 }

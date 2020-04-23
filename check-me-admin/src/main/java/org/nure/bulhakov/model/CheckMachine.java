@@ -1,5 +1,6 @@
 package org.nure.bulhakov.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,6 +18,7 @@ public class CheckMachine {
     private Date dateAdded;
 
     @DBRef
+    //@JsonIgnoreProperties("checkMachines")
     private Organization usedBy;
 
     private STATUS status;

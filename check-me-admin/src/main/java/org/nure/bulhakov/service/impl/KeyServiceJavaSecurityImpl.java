@@ -31,7 +31,7 @@ public class KeyServiceJavaSecurityImpl implements KeyService {
     }
 
     @Override
-    public String getPrivateKeyFormatted() {
+    public PrivateKey getPrivateKey() {
         if (privateJavaSecurityKey == null) {
             try {
                 initializeKeys();
@@ -39,15 +39,7 @@ public class KeyServiceJavaSecurityImpl implements KeyService {
                 e.printStackTrace();
             }
         }
-        return Base64.getEncoder().encodeToString(privateJavaSecurityKey.getEncoded());
-    }
-
-    public PrivateKey getPrivateKey() {
         return privateJavaSecurityKey;
-    }
-
-    public PublicKey getPublicKey() {
-        return publicJavaSecurityKey;
     }
 
     private void initializeKeys() throws NoSuchAlgorithmException, InvalidKeySpecException {

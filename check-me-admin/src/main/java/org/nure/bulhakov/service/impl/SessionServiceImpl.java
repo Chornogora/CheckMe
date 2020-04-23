@@ -36,7 +36,7 @@ public class SessionServiceImpl implements SessionService {
             @Override
             public void run() {
                 sessionRepository.clearExpiredSessions();
-                timer.schedule(this, getClearingDate());
+                setClearingThread();
             }
         };
         timer.schedule(task, getClearingDate());

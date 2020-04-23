@@ -37,7 +37,7 @@ public class SessionRepositoryImpl implements SessionRepository {
         Date date = new Date(System.currentTimeMillis());
         Map<String, Date> newSessions = new HashMap<>();
         sessions.entrySet().stream()
-                .filter(entry -> date.compareTo(entry.getValue()) > 0)
+                .filter(entry -> date.compareTo(entry.getValue()) < 0)
                 .forEach(entry -> newSessions.put(entry.getKey(), entry.getValue()));
         sessions = newSessions;
     }

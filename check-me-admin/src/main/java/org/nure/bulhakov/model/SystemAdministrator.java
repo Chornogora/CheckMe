@@ -1,5 +1,6 @@
 package org.nure.bulhakov.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,6 +12,7 @@ public class SystemAdministrator {
 
     private String login;
 
+    @JsonIgnore
     private String passwordHash;
 
     public SystemAdministrator() {
